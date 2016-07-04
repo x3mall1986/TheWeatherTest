@@ -6,5 +6,8 @@ target 'TheWeatherTest' do
    use_frameworks!
 
   # Pods for TheWeatherTest
+  pod 'AFNetworking', '~> 3.0'
+  pod 'MBProgressHUD', '~> 0.9.2'
+  pod 'GoogleMaps'
   
 end
