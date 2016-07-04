@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sfP-3T-5yy">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="o08-0t-GK6">
+            <objects>
+                <navigationController id="sfP-3T-5yy" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vSv-Kz-5rj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fF5-Sn-hSz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="20q-Hi-HAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-604" y="232"/>
+        </scene>
+        <!--Погода-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhm-pc-2Yj">
+                                <rect key="frame" x="0.0" y="64" width="600" height="268"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите город" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aoa-Ch-WAe">
+                                        <rect key="frame" x="20" y="30" width="320" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go"/>
+                                        <connections>
+                                            <action selector="dropdownCityTextFieldValueChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="qRt-qh-Dvf"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="kyy-RC-tUM"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="или" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4B-Vi-ctD">
+                                        <rect key="frame" x="348" y="35" width="29.5" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3YN-uj-ddi">
+                                        <rect key="frame" x="385.5" y="30" width="30" height="30"/>
+                                        <state key="normal" backgroundImage="Geolokacija"/>
+                                        <state key="highlighted" backgroundImage="Geolokacija"/>
+                                        <connections>
+                                            <action selector="currentGeoButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jpg-jA-Th8"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcW-fx-6fD">
+                                        <rect key="frame" x="20" y="71" width="560" height="185"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="siY-fF-XJZ">
+                                        <rect key="frame" x="20" y="71" width="560" height="185"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="DNe-y1-f24"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="sfm-Ja-CMK"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="lcW-fx-6fD" secondAttribute="trailing" constant="20" id="1ic-T1-kZr"/>
+                                    <constraint firstItem="siY-fF-XJZ" firstAttribute="top" secondItem="3YN-uj-ddi" secondAttribute="bottom" constant="11" id="35L-An-Pvr"/>
+                                    <constraint firstItem="D4B-Vi-ctD" firstAttribute="top" secondItem="nhm-pc-2Yj" secondAttribute="top" constant="35" id="3LZ-Ns-ZxO"/>
+                                    <constraint firstAttribute="bottom" secondItem="siY-fF-XJZ" secondAttribute="bottom" constant="12" id="65Z-3U-CTB"/>
+                                    <constraint firstItem="lcW-fx-6fD" firstAttribute="top" secondItem="3YN-uj-ddi" secondAttribute="bottom" constant="11" id="AZZ-RU-DzB"/>
+                                    <constraint firstItem="lcW-fx-6fD" firstAttribute="leading" secondItem="nhm-pc-2Yj" secondAttribute="leading" constant="20" id="FTR-gk-af5"/>
+                                    <constraint firstItem="3YN-uj-ddi" firstAttribute="top" secondItem="nhm-pc-2Yj" secondAttribute="top" constant="30" id="GFF-gS-btM"/>
+                                    <constraint firstAttribute="bottom" secondItem="lcW-fx-6fD" secondAttribute="bottom" constant="12" id="KAY-n3-6Ko"/>
+                                    <constraint firstItem="aoa-Ch-WAe" firstAttribute="width" secondItem="nhm-pc-2Yj" secondAttribute="width" multiplier="0.534" id="RDc-de-HgA"/>
+                                    <constraint firstAttribute="trailing" secondItem="siY-fF-XJZ" secondAttribute="trailing" constant="20" id="YV1-S6-3cZ"/>
+                                    <constraint firstItem="3YN-uj-ddi" firstAttribute="leading" secondItem="D4B-Vi-ctD" secondAttribute="trailing" constant="8" id="dzR-gh-bKZ"/>
+                                    <constraint firstItem="D4B-Vi-ctD" firstAttribute="leading" secondItem="aoa-Ch-WAe" secondAttribute="trailing" constant="8" id="fLk-xB-8Cd"/>
+                                    <constraint firstItem="aoa-Ch-WAe" firstAttribute="leading" secondItem="nhm-pc-2Yj" secondAttribute="leading" constant="20" id="ov4-AF-FST"/>
+                                    <constraint firstItem="aoa-Ch-WAe" firstAttribute="top" secondItem="nhm-pc-2Yj" secondAttribute="top" constant="30" id="rt9-7t-uaR"/>
+                                    <constraint firstItem="siY-fF-XJZ" firstAttribute="leading" secondItem="nhm-pc-2Yj" secondAttribute="leading" constant="20" id="xVc-I0-bRb"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mwm-KB-hlq" userLabel="MapsViewContainer">
+                                <rect key="frame" x="0.0" y="332" width="600" height="268"/>
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="suB-yE-GaH">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="268"/>
+                                        <connections>
+                                            <segue destination="rTF-4y-P3Z" kind="embed" id="IHT-Rc-Ngw"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="suB-yE-GaH" firstAttribute="leading" secondItem="Mwm-KB-hlq" secondAttribute="leading" id="Ii4-yi-D5V"/>
+                                    <constraint firstItem="suB-yE-GaH" firstAttribute="top" secondItem="Mwm-KB-hlq" secondAttribute="top" id="bjk-9d-dPo"/>
+                                    <constraint firstAttribute="trailing" secondItem="suB-yE-GaH" secondAttribute="trailing" id="pOR-ET-Lqe"/>
+                                    <constraint firstAttribute="bottom" secondItem="suB-yE-GaH" secondAttribute="bottom" id="q3F-et-9ce"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mwm-KB-hlq" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="1sZ-Va-SMM"/>
+                            <constraint firstItem="Mwm-KB-hlq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6Qu-g2-nxa"/>
+                            <constraint firstAttribute="trailing" secondItem="Mwm-KB-hlq" secondAttribute="trailing" id="8lj-aa-nID"/>
+                            <constraint firstItem="Mwm-KB-hlq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="9aM-Hf-l7i"/>
+                            <constraint firstItem="Mwm-KB-hlq" firstAttribute="top" secondItem="nhm-pc-2Yj" secondAttribute="bottom" id="Jrr-DR-Z78"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mwm-KB-hlq" secondAttribute="bottom" id="O9y-0k-JW1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mwm-KB-hlq" secondAttribute="bottom" id="OO0-oL-zPG"/>
+                            <constraint firstItem="Mwm-KB-hlq" firstAttribute="height" secondItem="nhm-pc-2Yj" secondAttribute="height" id="Q4q-Av-6D7"/>
+                            <constraint firstItem="nhm-pc-2Yj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qx8-JF-DCX"/>
+                            <constraint firstAttribute="trailing" secondItem="nhm-pc-2Yj" secondAttribute="trailing" id="Uks-7p-88l"/>
+                            <constraint firstItem="nhm-pc-2Yj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="bhH-s8-6f1"/>
+                            <constraint firstItem="nhm-pc-2Yj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="dnl-pS-sxa"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nhm-pc-2Yj" secondAttribute="bottom" id="hiK-wc-wfK"/>
+                            <constraint firstItem="Mwm-KB-hlq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hn2-eI-8k5"/>
+                            <constraint firstItem="nhm-pc-2Yj" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="jYn-8O-RfC"/>
+                            <constraint firstItem="nhm-pc-2Yj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="myX-pw-Rwo"/>
+                            <constraint firstItem="Mwm-KB-hlq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="r0r-ui-wUE"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1sZ-Va-SMM"/>
+                                <exclude reference="9aM-Hf-l7i"/>
+                                <exclude reference="r0r-ui-wUE"/>
+                                <exclude reference="dnl-pS-sxa"/>
+                                <exclude reference="jYn-8O-RfC"/>
+                                <exclude reference="O9y-0k-JW1"/>
+                                <exclude reference="hiK-wc-wfK"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="1sZ-Va-SMM"/>
+                                <exclude reference="6Qu-g2-nxa"/>
+                                <exclude reference="8lj-aa-nID"/>
+                                <include reference="9aM-Hf-l7i"/>
+                                <exclude reference="Jrr-DR-Z78"/>
+                                <exclude reference="hn2-eI-8k5"/>
+                                <include reference="r0r-ui-wUE"/>
+                                <exclude reference="Qx8-JF-DCX"/>
+                                <include reference="dnl-pS-sxa"/>
+                                <include reference="jYn-8O-RfC"/>
+                                <exclude reference="myX-pw-Rwo"/>
+                                <include reference="O9y-0k-JW1"/>
+                                <exclude reference="OO0-oL-zPG"/>
+                                <include reference="hiK-wc-wfK"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Погода" id="fFh-bP-y8M"/>
+                    <connections>
+                        <outlet property="autocompleteTableView" destination="siY-fF-XJZ" id="SLX-mx-2YE"/>
+                        <outlet property="currentGeoButton" destination="3YN-uj-ddi" id="aPz-QD-X6Z"/>
+                        <outlet property="dropdownCityTextField" destination="aoa-Ch-WAe" id="9gV-1N-E3T"/>
+                        <outlet property="weatherInfoTextView" destination="lcW-fx-6fD" id="aSM-rC-GDt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133" y="232"/>
+        </scene>
+        <!--Google Maps View Controller-->
+        <scene sceneID="eZy-Kb-Rnq">
+            <objects>
+                <viewController id="rTF-4y-P3Z" customClass="TWTGoogleMapsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NV3-eo-90d"/>
+                        <viewControllerLayoutGuide type="bottom" id="95L-gp-U6P"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JiI-SZ-Oay">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="268"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Io-yt-9hN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133" y="841"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Geolokacija" width="30" height="30"/>
+    </resources>
+</document>
