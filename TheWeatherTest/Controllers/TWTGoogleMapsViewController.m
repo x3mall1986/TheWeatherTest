@@ -80,8 +80,6 @@ CLLocationCoordinate2D const TWGKyivLocationCoordinate = {50.429, 30.537};
 
 - (CLLocationCoordinate2D)userGeoPosition
 {
-    mapView_.myLocationEnabled = YES;
-    
     return mapView_.myLocation.coordinate;
 }
 
